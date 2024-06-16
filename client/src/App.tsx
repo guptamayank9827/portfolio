@@ -17,8 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-        and create a
+        </a> and create a
         <a
           className="App-link"
           href="https://guptamayank9827.github.io/portfolio/"
