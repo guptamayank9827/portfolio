@@ -4,7 +4,7 @@ import { Box, Heading, Text, Button, Link as ChakraLink } from '@chakra-ui/react
 
 function Page404() {
   return (
-    <Box textAlign="center" style={{margin:"auto"}}>
+    <Box textAlign="center" style={{paddingTop:"25%"}}>
 
       <Heading
         display="inline-block"
