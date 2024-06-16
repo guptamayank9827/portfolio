@@ -5,7 +5,10 @@ import './App.css';
 
 function App() {
   return (
-    <RouterProvider router={AppRouter} />
+    <div id="app-div">
+      {/*Navbar Component*/}
+      <RouterProvider router={AppRouter} />
+    </div>
   );
 }
 
