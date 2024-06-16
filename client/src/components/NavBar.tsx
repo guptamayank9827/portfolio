@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Navbar() {
+function NavBar() {
   return (
     <div id="navbar-section">
-        Navbar Component
+        NavBar Component
     </div>
   );
 }
 
-export default Navbar;
+export default NavBar;

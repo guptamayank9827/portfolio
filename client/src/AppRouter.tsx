@@ -9,7 +9,7 @@ const AppRouter = createBrowserRouter([
       errorElement: <Page404 />
     },
     {
-        path: "home",
+        path: "tech",
         element: <Home />
     }
 ]);
