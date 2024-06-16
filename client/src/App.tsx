@@ -18,6 +18,15 @@ function App() {
         >
           Learn React
         </a>
+        and create a
+        <a
+          className="App-link"
+          href="https://guptamayank9827.github.io/portfolio/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          portfolio
+        </a>
       </header>
     </div>
   );
