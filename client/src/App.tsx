@@ -1,33 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import { RouterProvider } from 'react-router-dom';
+import AppRouter from './AppRouter';
 import './App.css';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        and create a
-        <a
-          className="App-link"
-          href="https://guptamayank9827.github.io/portfolio/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          portfolio
-        </a>
-      </header>
+    <div id="app-div">
+      <NavBar />
+      <RouterProvider router={AppRouter} />
     </div>
   );
 }
