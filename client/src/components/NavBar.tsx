@@ -1,5 +1,5 @@
-import { Box, Flex, HStack, IconButton, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Box, Flex, HStack, Button, IconButton, Stack, useDisclosure, useColorModeValue, useColorMode } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 type LinkType = {
   keyword: string,
@@ -52,6 +52,7 @@ const NavLink = (props:LinkProps) => {
 function NavBar() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <div id="navbar-section">
@@ -74,7 +75,9 @@ function NavBar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Box>Theme</Box>  {/* insert theme switcher here */}
+            <Button onClick={toggleColorMode}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
           </Flex>
         </Flex>
 
