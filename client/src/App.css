@@ -3,12 +3,14 @@
   display: block;
   align-items: center;
   justify-content: center;
-  background-color: #444444;
+  /* background-color: #444444; */
 }
 
 .section {
   height: 100vh;
   width: 100%;
+  padding-left: var(--chakra-space-4);
+  padding-right: var(--chakra-space-4);
 }
 
 
