@@ -3,7 +3,7 @@ import { Box, Heading, Text, Icon, List, useColorModeValue } from '@chakra-ui/re
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 type SocialLinkType = {
   keyword: string,
@@ -16,23 +16,37 @@ interface SocialProps {
   socialLink: SocialLinkType
 };
 
+interface ContactProps {
+  view: string
+};
+
 const SOCIAL_LINKS = [
   {
     keyword: "github",
     title: "GitHub",
     link: "https://github.com/guptamayank9827",
+    view: "tech",
     icon: <Icon as={GitHubIcon} boxSize={8} />
   },
   {
     keyword: "linkedin",
     title: "LinkedIn",
     link: "https://www.linkedin.com/in/mayank-gupta-099301161/",
+    view: "tech",
     icon: <Icon as={LinkedInIcon} boxSize={8} />
+  },
+  {
+    keyword: "instagram",
+    title: "Instagram",
+    link: "https://www.instagram.com/mayankgupta9827/",
+    view: "photo",
+    icon: <Icon as={InstagramIcon} boxSize={8} />
   },
   {
     keyword: "email",
     title: "Email",
     link: "mailto:mayankgupta9827usa@gmail.com",
+    view: "all",
     icon: <Icon as={EmailIcon} boxSize={8} />
   }
 ];
@@ -59,7 +73,7 @@ const IconLink = (props:SocialProps) => {
   )
 }
 
-function Contact() {
+function Contact(props:ContactProps) {
   return (
     <div className="section" id="contact">
       <Box className="section-div">
@@ -80,7 +94,7 @@ function Contact() {
         </Text>
 
         <List mt={2} pt={4} style={{display:"flex"}}>
-          {SOCIAL_LINKS.map((link) => (
+          {SOCIAL_LINKS.filter((link) => link.view === props.view || link.view === "all").map((link) => (
             <IconLink key={link.keyword} socialLink={link} />
           ))}
         </List>
