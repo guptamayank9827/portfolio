@@ -9,7 +9,7 @@ type SocialLinkType = {
   keyword: string,
   title: string,
   link: string,
-  icon: React.ReactNode
+  icon: any
 };
 
 interface SocialProps {
@@ -26,28 +26,28 @@ const SOCIAL_LINKS = [
     title: "GitHub",
     link: "https://github.com/guptamayank9827",
     view: "tech",
-    icon: <Icon as={GitHubIcon} boxSize={8} />
+    icon: GitHubIcon
   },
   {
     keyword: "linkedin",
     title: "LinkedIn",
     link: "https://www.linkedin.com/in/mayank-gupta-099301161/",
     view: "tech",
-    icon: <Icon as={LinkedInIcon} boxSize={8} />
+    icon: LinkedInIcon
   },
   {
     keyword: "instagram",
     title: "Instagram",
     link: "https://www.instagram.com/mayankgupta9827/",
     view: "photo",
-    icon: <Icon as={InstagramIcon} boxSize={8} />
+    icon: InstagramIcon
   },
   {
     keyword: "email",
     title: "Email",
     link: "mailto:mayankgupta9827usa@gmail.com",
     view: "all",
-    icon: <Icon as={EmailIcon} boxSize={8} />
+    icon: EmailIcon
   }
 ];
 
@@ -68,7 +68,7 @@ const IconLink = (props:SocialProps) => {
       href={link}
       target='_blank'
     >
-      {icon}
+      <Icon as={icon} boxSize={8} />
     </Box>
   )
 }
