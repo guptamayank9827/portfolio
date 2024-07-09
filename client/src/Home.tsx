@@ -13,7 +13,7 @@ function Home() {
             <Experience />
             <Skills />
             <Projects />
-            <Contact />
+            <Contact view="tech" />
         </>
     );
 }
