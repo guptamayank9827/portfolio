@@ -37,7 +37,7 @@ interface BadgeProps {
   skill: BadgeType
 };
 
-const CATEGORIES = [
+/*const CATEGORIES = [
   {
     keyword: "web-lang",
     title: "Web Languages"
@@ -62,7 +62,7 @@ const CATEGORIES = [
     keyword: "hosting",
     title: "Hosting Platforms"
   }
-];
+];*/
 
 const SKILLS = [
   {
@@ -219,7 +219,7 @@ function Skills() {
           Skills
         </Heading>
 
-        <Text fontSize="lg" mt={2} mb={2}>
+        <Text fontSize="lg" my={2}>
           Explore my diverse set of skills as a Full-Stack Developer
         </Text>
 
