@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Box, Heading, Text, Icon, List, useColorModeValue } from '@chakra-ui/react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
