@@ -207,7 +207,7 @@ const Badge = (props:BadgeProps) => {
 function Skills() {
   return (
     <div className="section" id="skills">
-      <Box className="section-div">
+      <Box className="section-div" width={"80%"} px={20}>
 
         <Heading
           display="inline-block"
