@@ -139,8 +139,8 @@ const ExperienceCard = (props:ExperienceProps) => {
       <AccordionPanel pl={4}>
         <Box as="span" flex="1" textAlign="left">
           <List spacing={0}>
-            {works.map(work => (
-              <ListItem>
+            {works.map((work,i) => (
+              <ListItem key={"work"+i}>
                 <Text fontSize={"xs"}>
                   {work}
                 </Text>
@@ -175,7 +175,7 @@ function Experience() {
 
         <Accordion defaultIndex={[]} allowMultiple mt={4}>
           {EXPERIENCES.map(experience => (
-            <ExperienceCard experience={experience} />
+            <ExperienceCard experience={experience} key={experience.keyword} />
           ))}
         </Accordion>
 
