@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Flex, Grid, Heading, Text, Spacer, Icon } from '@chakra-ui/react';
+import { Container, Box, Flex, SimpleGrid, Heading, Text, Spacer, Icon } from '@chakra-ui/react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 
@@ -73,7 +73,7 @@ const ProjectCard = (props:ProjectProps) => {
   return(
     <Box as="span" flex="1" textAlign="left" borderWidth={1} borderRadius={10} p={2}>
 
-      <Flex mb={2} minHeight={12}>
+      <Flex mb={2} height={{md:16}}>
         <Box>
           <Text fontSize={"md"} display={"block"} bgColor="teal" backgroundClip="text">
             {name}
@@ -91,7 +91,7 @@ const ProjectCard = (props:ProjectProps) => {
         }
       </Flex>
 
-      <Text fontSize={"sm"} display={"block"}>
+      <Text fontSize={"sm"} display={"block"} style={{height:"calc(100% - var(--chakra-sizes-16))"}}>
         {description}
       </Text>
       
@@ -101,8 +101,8 @@ const ProjectCard = (props:ProjectProps) => {
 
 function Projects() {
   return (
-    <div className="section" id="projects">
-      <Box className="section-div" width={"80%"} px={20}>
+    <Container className="section" id="projects" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+      <Box className="section-div" textAlign={"center"}>
         
         <Heading
           display="inline-block"
@@ -114,14 +114,14 @@ function Projects() {
           Projects
         </Heading>
 
-        <Grid templateColumns='repeat(3, 1fr)' gap={6} mt={4}>
+        <SimpleGrid columns={{ base:1, sm:2, md:3 }} gap={6} mt={4} alignItems={"stretch"}>
           {PROJECTS.map(project => (
             <ProjectCard project={project} key={project.keyword} />
           ))}
-        </Grid>
+        </SimpleGrid>
 
       </Box>
-    </div>
+    </Container>
   );
 }
 

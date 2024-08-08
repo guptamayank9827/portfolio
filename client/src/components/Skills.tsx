@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Heading, Text, Tag, TagLabel, HStack, Image } from '@chakra-ui/react';
+import { Container, Box, Heading, Text, Tag, TagLabel, HStack, Image } from '@chakra-ui/react';
 
 //icons
 import HTML from '../icons/html.svg';
@@ -206,8 +206,8 @@ const Badge = (props:BadgeProps) => {
 
 function Skills() {
   return (
-    <div className="section" id="skills">
-      <Box className="section-div" width={"80%"} px={20}>
+    <Container className="section" id="skills" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+      <Box className="section-div" textAlign={"center"}>
 
         <Heading
           display="inline-block"
@@ -223,14 +223,14 @@ function Skills() {
           Explore my diverse set of skills as a Full-Stack Developer
         </Text>
 
-        <HStack my={2} py={4} px={16} display={"block"}>
+        <HStack mt={6} display={"block"}>
           {SKILLS.map((skill) => (
             <Badge key={skill.keyword} skill={skill} />
           ))}
         </HStack>
 
       </Box>
-    </div>
+    </Container>
   );
 }
 

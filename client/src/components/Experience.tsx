@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Heading, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, List, ListItem } from '@chakra-ui/react';
+import { Container, Box, Heading, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, List, ListItem } from '@chakra-ui/react';
 
 //icons
 import UTD from '../icons/utd.png';
@@ -117,17 +117,17 @@ const ExperienceCard = (props:ExperienceProps) => {
   const { role, company, startDate, endDate, works } = props.experience;
 
   return(
-    <AccordionItem borderRadius={16} borderWidth={2} my={2}>
+    <AccordionItem borderRadius={16} borderWidth={2} my={4}>
 
       <AccordionButton>
         <Box as="span" flex="1" textAlign="left">
-          <Text fontSize={"md"} display={"block"} bgColor="teal" backgroundClip="text">
+          <Text fontSize={"lg"} display={"block"} bgColor="teal" backgroundClip="text">
             {role}
           </Text>
-          <Text fontSize={"xs"} display={"block"}>
+          <Text fontSize={"md"} display={"block"}>
             {startDate} - {endDate || "Present"}
           </Text>
-          <Text fontSize={"xs"} display={"block"}>
+          <Text fontSize={"md"} display={"block"}>
             {company.name}, {company.location}
           </Text>
 
@@ -141,8 +141,8 @@ const ExperienceCard = (props:ExperienceProps) => {
           <List spacing={0}>
             {works.map((work,i) => (
               <ListItem key={"work"+i}>
-                <Text fontSize={"xs"}>
-                  {work}
+                <Text fontSize={"sm"}>
+                  - {work}
                 </Text>
               </ListItem>
             ))}
@@ -156,8 +156,8 @@ const ExperienceCard = (props:ExperienceProps) => {
 
 function Experience() {
   return (
-    <div className="section" id="experience">
-      <Box className="section-div" width={"80%"} px={20}>
+    <Container className="section" id="experience" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+      <Box className="section-div" textAlign={"center"}>
 
         <Heading
           display="inline-block"
@@ -169,18 +169,18 @@ function Experience() {
           Experience
         </Heading>
 
-        <Text fontSize="md" my={2}>
+        <Text fontSize="lg" my={2}>
           Over 4 years of Work Experience
         </Text>
 
-        <Accordion defaultIndex={[]} allowMultiple mt={4}>
+        <Accordion defaultIndex={[]} allowMultiple mt={6}>
           {EXPERIENCES.map(experience => (
             <ExperienceCard experience={experience} key={experience.keyword} />
           ))}
         </Accordion>
 
       </Box>
-    </div>
+    </Container>
   );
 }
 
