@@ -15,17 +15,17 @@ const LINKS = [
   {
     keyword: "projects",
     text: "Projects",
-    link: "/#projects"
+    link: "/portfolio/#projects"
   },
   {
     keyword: "skills",
     text: "Skills",
-    link: "/#skills"
+    link: "/portfolio/#skills"
   },
   {
     keyword: "photography",
     text: "Alter Ego",
-    link: "/photography"
+    link: "/portfolio/photography"
   }
 ];
 

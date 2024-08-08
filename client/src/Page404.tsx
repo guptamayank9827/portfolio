@@ -25,7 +25,7 @@ function Page404() {
           The page you&apos;re looking for does not seem to exist
         </Text>
 
-        <ChakraLink as={RouterLink} to="/">
+        <ChakraLink as={RouterLink} to="/portfolio">
           <Button
             colorScheme="teal"
             color="white"
