@@ -20,9 +20,9 @@ jobs:
         run: cd client && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entryPoint: /client
-          sparse-checkout: /client
+          entryPoint: client
+          sparse-checkout: client
           sparse-checkout-cone-mode: false
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MAYANK_GUPTA_PORTFOLIO }}
-          projectId: mayank-gupta-portfolio
+          projectId: ${{ env.FIREBASE_PROJECT }}
