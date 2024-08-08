@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Box, Heading, Text, Icon, List, useColorModeValue } from '@chakra-ui/react';
+import { Container, Box, Heading, Text, Icon, List, useColorModeValue } from '@chakra-ui/react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
@@ -75,8 +75,9 @@ const IconLink = (props:SocialProps) => {
 
 function Contact(props:ContactProps) {
   return (
-    <div className="section" id="contact">
-      <Box className="section-div">
+    <Container className="section" id="contact" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+      <Box className="section-div" textAlign={"center"}>
+
         <Heading
           display="inline-block"
           as="h4"
@@ -93,14 +94,14 @@ function Contact(props:ContactProps) {
           Maybe you just want to say Hey!
         </Text>
 
-        <List mt={2} pt={4} style={{display:"flex"}}>
+        <List mt={8} style={{display:"flex"}} mx={"auto"} width={{ base:"100%", md:"50%", lg:"40%" }}>
           {SOCIAL_LINKS.filter((link) => link.view === props.view || link.view === "all").map((link) => (
             <IconLink key={link.keyword} socialLink={link} />
           ))}
         </List>
         
       </Box>
-    </div>
+    </Container>
   );
 }
 
