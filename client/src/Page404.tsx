@@ -1,11 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Heading, Text, Button, Link as ChakraLink } from '@chakra-ui/react';
+import { Container, Box, Heading, Text, Button, Link as ChakraLink } from '@chakra-ui/react';
 
 function Page404() {
   return (
-    <div className="section" id="404">
-      <Box className="section-div">
+    <Container className="section" id="404" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+      <Box className="section-div" textAlign={"center"}>
+
         <Heading
           display="inline-block"
           as="h2"
@@ -33,8 +34,9 @@ function Page404() {
             Go to Home
           </Button>
         </ChakraLink>
+
       </Box>
-    </div>
+    </Container>
   );
 }
 
