@@ -18,6 +18,7 @@ jobs:
       - run: cd client && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
+          entrypoint: /client
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MAYANK_GUPTA_PORTFOLIO }}
           projectId: mayank-gupta-portfolio
