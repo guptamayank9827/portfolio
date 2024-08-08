@@ -1,0 +1,27 @@
+name: Deploy Client to Firebase Hosting
+
+on:
+  push:
+    branches: [ "firebase" ]
+
+permissions:
+  checks: write
+  id-token: write
+  contents: read
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: cd client && npm ci
+      - name: Build Client
+        run: cd client && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          sparse-checkout: '/client'
+          sparse-checkout-cone-mode: false
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MAYANK_GUPTA_PORTFOLIO }}
+          projectId: mayank-gupta-portfolio
