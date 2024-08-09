@@ -2,7 +2,11 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Container, Box, Heading, Text, Button, Link as ChakraLink } from '@chakra-ui/react';
 
-function Page404() {
+interface Error404Props {
+  view: string
+};
+
+function Page404(props:Error404Props) {  
   return (
     <Container className="section" id="404" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"center"}>
@@ -25,7 +29,7 @@ function Page404() {
           The page you&apos;re looking for does not seem to exist
         </Text>
 
-        <ChakraLink as={RouterLink} to="/portfolio">
+        <ChakraLink as={RouterLink} to={`/${props.view}`}>
           <Button
             colorScheme="teal"
             color="white"

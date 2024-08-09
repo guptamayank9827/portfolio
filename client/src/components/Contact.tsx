@@ -39,7 +39,7 @@ const SOCIAL_LINKS = [
     keyword: "instagram",
     title: "Instagram",
     link: "https://www.instagram.com/mayankgupta9827/",
-    view: "photo",
+    view: "photography",
     icon: InstagramIcon
   },
   {
