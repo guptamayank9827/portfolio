@@ -30,7 +30,7 @@ interface ExperienceProps {
 const COMPANIES = {
   utd: {
     name: "The University of Texas at Dallas",
-    location: "Dallas, USA",
+    location: "Richardson, TX, USA",
     logo: UTD
   },
   fundwave: {
@@ -48,15 +48,14 @@ const COMPANIES = {
 const EXPERIENCES = [
   {
     keyword: "grader",
-    role: "CS Grader",
-    type: "full",
+    role: "Computer Science Grader",
+    type: "part",
     company: COMPANIES["utd"],
     startDate: "January 2024",
-    endDate: "May 2024",
+    endDate: "Present",
     works: [
-      "Designed homework assignments' questions and answers for the course Discrete Maths Applications.",
-      "Graded student's homework assignments.",
-      "Helped students in solving doubts and learning coursework."
+      "Evaluated and designed assignment questions and comprehensive solutions for CS courses Discrete Mathematics, and Design and Analysis of Algorithms, ensuring alignment with course objectives and learning outcomes",
+      "Resolved students’ academic queries, providing clear explanations to strengthen conceptual understanding"
     ]
   },
   {
@@ -67,9 +66,9 @@ const EXPERIENCES = [
     startDate: "July 2022",
     endDate: "June 2023",
     works: [
-      "Proposed and released several new features for Sales and Customer Success teams as weekly sprints.",
-      "Led the Captable project with a team of 4, focused on helping funds manage capitalization tables of their portfolio companies and forecast their proceeds.",
-      "Successfully conducted hiring processes in several colleges - including IITs and NITs."
+      "Architected 2 microservices in Node.js, Express.js & MongoDB, containerized using Docker, decoupling critical functionalities from a monolithic server, reducing system latency by 20% for related API endpoints",
+      "Led the Captable project from concept to deployment, enabling funds to forecast portfolios and investment returns, driving 1.4x customer growth for the product line.",
+      "Planned and led 18 agile technical sprints, backlog grooming, and code reviews, ensuring adherence to clean code practices and on-time high-quality feature delivery"
     ]
   },
   {
@@ -80,11 +79,10 @@ const EXPERIENCES = [
     startDate: "January 2021",
     endDate: "June 2022",
     works: [
-      "Created custom functions on Excel, for clients to easily generate reports.",
-      "Worked on a new Captable project to view & manage capitalization of portfolio companies.",
-      "Published several common components to our private repository, to be used across our applications.",
-      "Devised OpenAPI endpoints for clients to easily retrieve their data.",
-      "Onboarded several interns and new joinees."
+      "Spearheaded the development of a Captable management tool using the MERN stack (MongoDB, Express.js, React.js, Node.js), empowering funds track equity ownership, contributing to 12% of the company’s ARR",
+      "Engineered 35 custom Excel functions using Office JavaScript API, enabling clients to generate real-time customizable reports, reducing manual reporting effort by 90%",
+      "Designed, published, and maintained 8 reusable UI components using TypeScript, React.js, and Lit -html, seamlessly integrating into 5 internal products through CI/CD pipelines using Git workflows.",
+      "Released and documented 24 RESTful OpenAPI endpoints using Typescript and YAML, published on Swagger, providing clients with efficient access to high-demand portfolio data"
     ]
   },
   {
@@ -95,8 +93,10 @@ const EXPERIENCES = [
     startDate: "July 2019",
     endDate: "December 2020",
     works: [
-      "Augmented website's look and feel, and improved SEO rankings.",
-      "Developed a new tool Dealflow in a 2 member team, to help funds make faster and better decisions for their upcoming investments."
+      "Built a full-featured Dealflow dashboard using the MERN stack to streamline investment evaluation workflows, significantly enhancing decision-making efficiency for fund managers",
+      "Enhanced the website’s UI/UX using HTML, CSS, JS, and optimized the asset pipeline with Gulp tasks, reducing overall website size by 35% and improving page load speed by 25%",
+      "Conceived a Gmail add-on using Google Apps Script to integrate users’ email inboxes with the Dealflow product",
+      "Boosted website discoverability by improving SEO performance, driving the company’s website into the top 3 Google search results for 70% of targeted keywords, increasing inbound traffic and product discovery"
     ]
   },
   {
@@ -107,8 +107,8 @@ const EXPERIENCES = [
     startDate: "May 2018",
     endDate: "July 2018",
     works: [
-      "Designed an automated web scraper to fetch financials of companies listed on Bombay Stock Exchange.",
-      "Cleaned and analyzed collected data via visualization to gain insights and forecast the behavior of these companies."
+      "Deployed an automated web scraper using Selenium and BeautifulSoup to extract quarterly financial data for 500+ companies listed on the Bombay Stock Exchange",
+      "Cleaned and analyzed over 10,000 data points using pandas and matplotlib to generate visual insights and forecast company performance trends"
     ]
   }
 ];

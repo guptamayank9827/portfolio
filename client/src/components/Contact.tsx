@@ -91,7 +91,7 @@ function Contact(props:ContactProps) {
         <Text fontSize="lg" mt={2} mb={2}>
           Do you want to work together?
           <br />
-          Maybe you just want to say Hey!
+          Maybe you just want to say Hi!
         </Text>
 
         <List mt={8} style={{display:"flex"}} mx={"auto"} width={{ base:"100%", md:"50%", lg:"40%" }}>
