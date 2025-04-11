@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Container, Box, Heading, Text, Button, Link as ChakraLink } from '@chakra-ui/react';
 

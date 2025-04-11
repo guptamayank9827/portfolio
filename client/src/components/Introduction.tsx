@@ -1,9 +1,28 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Box, Container, Stack, Flex, Heading, Text, useBreakpointValue, Image } from '@chakra-ui/react';
+import ProfilePicture from '../icons/profile-image.png';
+import { useIntersectionObserver } from 'usehooks-ts';
 
-function Introduction() {
+
+interface IntroductionComponentProps {
+  updateComponentView: Function
+}
+
+function Introduction(props:IntroductionComponentProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    props.updateComponentView(isIntersecting ? "introduction" : "");
+  }
+
+
   return (
-    <Container className="section" id="introduction" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="introduction" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"left"}>
 
         <Stack direction={{ base: 'column', md: 'row' }}>
@@ -43,8 +62,9 @@ function Introduction() {
             <Image
               alt={'Login Image'}
               objectFit={'cover'}
-              src={'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'}
+              src={ProfilePicture}
               mt={{ base:8, md:0 }}
+              borderRadius="100px"
             />
           </Flex>
         </Stack>

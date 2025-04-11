@@ -1,5 +1,8 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Container, Box, Heading, Text, Icon, List, useColorModeValue } from '@chakra-ui/react';
+import { useIntersectionObserver } from 'usehooks-ts';
+
+// icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
@@ -17,8 +20,10 @@ interface SocialProps {
 };
 
 interface ContactProps {
-  view: string
+  view: string,
+  updateComponentView?: Function
 };
+
 
 const SOCIAL_LINKS = [
   {
@@ -74,8 +79,19 @@ const IconLink = (props:SocialProps) => {
 }
 
 function Contact(props:ContactProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    if(props.updateComponentView) props.updateComponentView(isIntersecting ? "contact" : "");
+  }
+
   return (
-    <Container className="section" id="contact" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="contact" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"center"}>
 
         <Heading
@@ -91,7 +107,7 @@ function Contact(props:ContactProps) {
         <Text fontSize="lg" mt={2} mb={2}>
           Do you want to work together?
           <br />
-          Maybe you just want to say Hey!
+          Maybe you just want to say Hi!
         </Text>
 
         <List mt={8} style={{display:"flex"}} mx={"auto"} width={{ base:"100%", md:"50%", lg:"40%" }}>
