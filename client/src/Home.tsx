@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import PageIndicator from './components/PageIndicator';
+import ComingSoon from './components/ComingSoon';
 
 
 interface HomeProps {
@@ -27,6 +28,7 @@ function Home(props:HomeProps) {
 
             {view === "photography" ?
                 <>
+                    <ComingSoon />
                     <Contact view={view} />
                 </>
                 :
