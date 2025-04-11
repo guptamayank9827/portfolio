@@ -24,7 +24,9 @@ import Java from '../icons/java.svg';
 import NodeJS from '../icons/node-js.svg';
 import Git from '../icons/git.svg';
 import Selenium from '../icons/selenium.svg';
-//GAS, PHP
+import GAS from '../icons/google-apps-script.svg';
+import PHP from '../icons/php.svg';
+import Gulp from '../icons/gulp.svg';
 
 
 type BadgeType = {
@@ -195,6 +197,24 @@ const SKILLS = [
     title: "ExpressJS",
     categories: ["framework"],
     icon: ExpressJS
+  },
+  {
+    keyword: "gulp",
+    title: "Gulp.js",
+    categories: ["framework"],
+    icon: Gulp
+  },
+  {
+    keyword: "gas",
+    title: "GAS",
+    categories: ["language"],
+    icon: GAS
+  },
+  {
+    keyword: "php",
+    title: "PHP",
+    categories: ["language"],
+    icon: PHP
   }
 ];
 
