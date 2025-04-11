@@ -73,6 +73,18 @@ interface SkillsComponentProps {
 
 const SKILLS = [
   {
+    keyword: "js",
+    title: "JavaScript",
+    categories: ["web-lang"],
+    icon: JS
+  },
+  {
+    keyword: "ts",
+    title: "TypeScript",
+    categories: ["web-lang"],
+    icon: TS
+  },
+  {
     keyword: "html",
     title: "HTML",
     categories: ["web-lang"],
@@ -89,18 +101,6 @@ const SKILLS = [
     title: "Bootstrap",
     categories: ["web-lang"],
     icon: Bootstrap
-  },
-  {
-    keyword: "js",
-    title: "JavaScript",
-    categories: ["web-lang"],
-    icon: JS
-  },
-  {
-    keyword: "ts",
-    title: "TypeScript",
-    categories: ["web-lang"],
-    icon: TS
   },
   {
     keyword: "mysql",
@@ -206,7 +206,7 @@ const SKILLS = [
   },
   {
     keyword: "gas",
-    title: "GAS",
+    title: "Google Apps Script",
     categories: ["language"],
     icon: GAS
   },
