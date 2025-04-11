@@ -1,10 +1,28 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Box, Container, Stack, Flex, Heading, Text, useBreakpointValue, Image } from '@chakra-ui/react';
 import ProfilePicture from '../icons/profile-image.png';
+import { useIntersectionObserver } from 'usehooks-ts';
 
-function Introduction() {
+
+interface IntroductionComponentProps {
+  updateComponentView: Function
+}
+
+function Introduction(props:IntroductionComponentProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    props.updateComponentView(isIntersecting ? "introduction" : "");
+  }
+
+
   return (
-    <Container className="section" id="introduction" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="introduction" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"left"}>
 
         <Stack direction={{ base: 'column', md: 'row' }}>

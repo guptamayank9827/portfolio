@@ -69,3 +69,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.overlay-stepper {
+  position: fixed;
+  top: 35%;
+  left: 0;
+  right: 0;
+  z-index: -1; /* High enough to stay on top */
+  pointer-events: auto; /* Optional: allow interaction */
+}

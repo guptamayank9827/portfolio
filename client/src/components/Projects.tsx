@@ -1,6 +1,10 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Container, Box, Flex, SimpleGrid, Heading, Text, Spacer, Icon } from '@chakra-ui/react';
+import { useIntersectionObserver } from 'usehooks-ts';
+
+// icons
 import GitHubIcon from '@mui/icons-material/GitHub';
+
 
 
 type ProjectType = {
@@ -13,6 +17,10 @@ type ProjectType = {
   endDate?: string
 };
 
+interface ProjectComponentProps {
+  updateComponentView: Function
+}
+
 interface ProjectProps {
   project: ProjectType
 };
@@ -21,7 +29,7 @@ const PROJECTS = [
   {
     keyword: "compiler_construction",
     name: "Semantic Compiler Construction in Java",
-    description: "To develop a compiler with syntax and semantic analysis using CUP and JFlex, for a Java similar language.",
+    description: "Modeled a compiler for a Java-like language, implementing lexical, syntax, and semantic analysis to parse and validate user-defined programs.",
     link: "https://github.com/guptamayank9827/compiler",
     startDate: "January 2024",
     endDate: "April 2024"
@@ -29,7 +37,7 @@ const PROJECTS = [
   {
     keyword: "partition_tolerance",
     name: "Partition Tolerant Distributed System in Java",
-    description: "To create a distributed system to ensure total communication ordering among computers for network failure.",
+    description: "Created a fault-tolerant distributed system that ensured total message ordering across 7 nodes in a simulated network environment.",
     link: "https://github.com/caleb-hoang/adv-os-proj3",
     startDate: "January 2024",
     endDate: "April 2024"
@@ -37,7 +45,7 @@ const PROJECTS = [
   {
     keyword: "ai_pacman",
     name: "AI-powered Pacman Game",
-    description: "Implemented search algorithms like Breadth First Search, Depth First Search, A* Search, and Reinforcement Learning to optimize food collection and ghost avoidance in the Pacman game.",
+    description: "Implemented search algorithms like BFS, DFS, A* Search, and Reinforcement Q-Learning to optimize food collection and ghost avoidance in Pacman.",
     link: "https://github.com/vanguard07/pacman",
     startDate: "January 2024",
     endDate: "April 2024"
@@ -78,6 +86,8 @@ const PROJECTS = [
 
 const ProjectCard = (props:ProjectProps) => {
   const { name, link, description } = props.project;
+  
+
   return(
     <Box as="span" flex="1" textAlign="left" borderWidth={1} borderRadius={10} p={2}>
 
@@ -107,9 +117,20 @@ const ProjectCard = (props:ProjectProps) => {
   );
 }
 
-function Projects() {
+function Projects(props:ProjectComponentProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+  
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    props.updateComponentView(isIntersecting ? "projects" : "");
+  }
+
   return (
-    <Container className="section" id="projects" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="projects" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"center"}>
         
         <Heading

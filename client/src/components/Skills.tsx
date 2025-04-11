@@ -1,5 +1,6 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Container, Box, Heading, Text, Tag, TagLabel, HStack, Image } from '@chakra-ui/react';
+import { useIntersectionObserver } from 'usehooks-ts';
 
 //icons
 import HTML from '../icons/html.svg';
@@ -36,6 +37,10 @@ type BadgeType = {
 interface BadgeProps {
   skill: BadgeType
 };
+
+interface SkillsComponentProps {
+  updateComponentView: Function
+}
 
 /*const CATEGORIES = [
   {
@@ -204,9 +209,20 @@ const Badge = (props:BadgeProps) => {
   );
 }
 
-function Skills() {
+function Skills(props:SkillsComponentProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    props.updateComponentView(isIntersecting ? "skills" : "");
+  }
+
   return (
-    <Container className="section" id="skills" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="skills" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"center"}>
 
         <Heading

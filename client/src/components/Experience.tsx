@@ -1,5 +1,6 @@
-// import React from 'react';
+import { useState } from 'react';
 import { Container, Box, Heading, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, List, ListItem } from '@chakra-ui/react';
+import { useIntersectionObserver } from 'usehooks-ts';
 
 //icons
 import UTD from '../icons/utd.png';
@@ -22,6 +23,10 @@ type ExperienceType = {
   endDate?: string,
   works: string[]
 };
+
+interface ExperienceComponentProps {
+  updateComponentView: Function
+}
 
 interface ExperienceProps {
   experience: ExperienceType
@@ -154,9 +159,20 @@ const ExperienceCard = (props:ExperienceProps) => {
   );
 }
 
-function Experience() {
+function Experience(props:ExperienceComponentProps) {
+  const [ intersecting, setIntersecting ] = useState<Boolean>(false);
+
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
+  if(isIntersecting !== intersecting) {
+    setIntersecting(isIntersecting);
+    props.updateComponentView(isIntersecting ? "experience" : "");
+  }
+
   return (
-    <Container className="section" id="experience" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="experience" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"center"}>
 
         <Heading
