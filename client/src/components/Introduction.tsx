@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Box, Container, Stack, Flex, Heading, Text, useBreakpointValue, Image } from '@chakra-ui/react';
+import { Box, Container, Button, Stack, Flex, Heading, Text, useBreakpointValue, Image } from '@chakra-ui/react';
 import ProfilePicture from '../icons/profile-image.png';
+import { DownloadIcon } from '@chakra-ui/icons';
 import { useIntersectionObserver } from 'usehooks-ts';
 
 
@@ -19,6 +20,15 @@ function Introduction(props:IntroductionComponentProps) {
     setIntersecting(isIntersecting);
     props.updateComponentView(isIntersecting ? "introduction" : "");
   }
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = `${process.env.PUBLIC_URL}Mayank - Resume - FullStack.pdf`;
+    link.download = 'Mayank_Gupta_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
   return (
@@ -52,10 +62,15 @@ function Introduction(props:IntroductionComponentProps) {
                   Web Developer
                 </Text>{' '}
               </Heading>
+
               <Text fontSize={{ base: 'lg', lg: 'xl' }} color={'gray.500'}>
                 I am a Full-Stack Developer with experience in designing and developing web applications.
               </Text>
-              {/* add button to download resume */}
+
+              <Button leftIcon={<DownloadIcon />} colorScheme='teal' variant='outline' size="lg" maxWidth={"200px"} onClick={downloadResume}>
+                Get Resume
+              </Button>
+
             </Stack>
           </Flex>
           <Flex flex={1} align={'right'}>
