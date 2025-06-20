@@ -3,15 +3,31 @@
   display: block;
   align-items: center;
   justify-content: center;
-  background-color: #444444;
+}
+
+#navbar-section {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 100;
 }
 
 .section {
-  height: 100vh;
-  width: 100%;
+  /* height: 100vh; */
+  /* width: 100%; */
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  display: flex;
+  /* padding-left: var(--chakra-space-4); */
+  /* padding-right: var(--chakra-space-4); */
 }
 
-
+.section-div {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+}
 
 
 
@@ -52,4 +68,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.overlay-stepper {
+  position: fixed;
+  top: 35%;
+  /* left: 0; */
+  right: 0;
+  z-index: 1001; /* High enough to stay on top */
+  pointer-events: auto; /* Optional: allow interaction */
 }
