@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Box, Flex, HStack, Button, IconButton, Stack, useDisclosure, useColorModeValue, useColorMode } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
@@ -11,26 +12,39 @@ interface LinkProps {
   navlink: LinkType
 };
 
-const LINKS = [
+interface NavbarProps {
+  view: string
+};
+
+const TECH_LINKS = [
   {
     keyword: "projects",
     text: "Projects",
-    link: "/#projects"
+    link: "/tech/#projects"
   },
   {
     keyword: "skills",
     text: "Skills",
-    link: "/#skills"
+    link: "/tech/#skills"
   },
   {
-    keyword: "photography",
+    keyword: "alternate",
     text: "Alter Ego",
     link: "/photography"
   }
 ];
 
+const PHOTOGRAPHY_LINKS = [
+  {
+    keyword: "alternate",
+    text: "Alter Ego",
+    link: "/tech"
+  }
+];
+
 const NavLink = (props:LinkProps) => {
   const { link, text } = props.navlink;
+
   return (
     <Box
       as="a"
@@ -48,11 +62,17 @@ const NavLink = (props:LinkProps) => {
   )
 }
 
-
-function NavBar() {
-
+function NavBar(props:NavbarProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const [links, setLinks] = useState<LinkType[]>([]);
+
+  useEffect(() => {
+    if(props.view === "tech") setLinks(TECH_LINKS);
+    else if(props.view === "photography")  setLinks(PHOTOGRAPHY_LINKS);
+  }, [props.view]);
+
 
   return (
     <div id="navbar-section">
@@ -69,7 +89,7 @@ function NavBar() {
           <HStack spacing={8} alignItems={'center'}>
             <Box>MG</Box>  {/* replace with graphic */}
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              {LINKS.map((link) => (
+              {links.map((link) => (
                 <NavLink key={link.keyword} navlink={link} />
               ))}
             </HStack>
@@ -84,7 +104,7 @@ function NavBar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {LINKS.map((link) => (
+              {links.map((link) => (
                 <NavLink key={link.keyword} navlink={link} />
               ))}
             </Stack>
