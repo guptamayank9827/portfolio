@@ -51,7 +51,7 @@ function Introduction(props:IntroductionComponentProps) {
                   _after={{
                     content: "''",
                     width: 'full',
-                    height: useBreakpointValue({ base: '20%', md: '30%' }),
+                    height: useBreakpointValue({ base: '20%', md: '20%' }),
                     position: 'absolute',
                     bottom: 1,
                     left: 0,
@@ -82,11 +82,11 @@ function Introduction(props:IntroductionComponentProps) {
               </Heading>
 
               <Text fontSize={{ base: 'lg', lg: 'xl' }} color={'gray.500'}>
-                Experienced in designing and developing web applications.
+                I build clients to servers, typed and tested - just how TypeScript likes it.
               </Text>
 
               <Button leftIcon={<DownloadIcon />} colorScheme='teal' variant='outline' size="lg" maxWidth={"200px"} onClick={downloadResume}>
-                Get Resume
+                Download CV
               </Button>
 
             </Stack>
