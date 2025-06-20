@@ -57,10 +57,10 @@ const EXPERIENCES = [
     type: "part",
     company: COMPANIES["utd"],
     startDate: "January 2024",
-    endDate: "Present",
+    endDate: "May 2025",
     works: [
       "Evaluated and designed assignment questions and comprehensive solutions for CS courses Discrete Mathematics, and Design and Analysis of Algorithms, ensuring alignment with course objectives and learning outcomes",
-      "Resolved students’ academic queries, providing clear explanations to strengthen conceptual understanding"
+      "Resolved students' academic queries, providing clear explanations to strengthen conceptual understanding"
     ]
   },
   {
@@ -84,7 +84,7 @@ const EXPERIENCES = [
     startDate: "January 2021",
     endDate: "June 2022",
     works: [
-      "Spearheaded the development of a Captable management tool using the MERN stack (MongoDB, Express.js, React.js, Node.js), empowering funds track equity ownership, contributing to 12% of the company’s ARR",
+      "Spearheaded the development of a Captable management tool using the MERN stack (MongoDB, Express.js, React.js, Node.js), empowering funds track equity ownership, contributing to 12% of the company's ARR",
       "Engineered 35 custom Excel functions using Office JavaScript API, enabling clients to generate real-time customizable reports, reducing manual reporting effort by 90%",
       "Designed, published, and maintained 8 reusable UI components using TypeScript, React.js, and Lit -html, seamlessly integrating into 5 internal products through CI/CD pipelines using Git workflows.",
       "Released and documented 24 RESTful OpenAPI endpoints using Typescript and YAML, published on Swagger, providing clients with efficient access to high-demand portfolio data"
@@ -99,9 +99,9 @@ const EXPERIENCES = [
     endDate: "December 2020",
     works: [
       "Built a full-featured Dealflow dashboard using the MERN stack to streamline investment evaluation workflows, significantly enhancing decision-making efficiency for fund managers",
-      "Enhanced the website’s UI/UX using HTML, CSS, JS, and optimized the asset pipeline with Gulp tasks, reducing overall website size by 35% and improving page load speed by 25%",
-      "Conceived a Gmail add-on using Google Apps Script to integrate users’ email inboxes with the Dealflow product",
-      "Boosted website discoverability by improving SEO performance, driving the company’s website into the top 3 Google search results for 70% of targeted keywords, increasing inbound traffic and product discovery"
+      "Enhanced the website's UI/UX using HTML, CSS, JS, and optimized the asset pipeline with Gulp tasks, reducing overall website size by 35% and improving page load speed by 25%",
+      "Conceived a Gmail add-on using Google Apps Script to integrate users' email inboxes with the Dealflow product",
+      "Boosted website discoverability by improving SEO performance, driving the company's website into the top 3 Google search results for 70% of targeted keywords, increasing inbound traffic and product discovery"
     ]
   },
   {
