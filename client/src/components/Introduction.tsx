@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Box, Container, Button, Stack, Flex, Heading, Text, useBreakpointValue, Image } from '@chakra-ui/react';
-import ProfilePicture from '../icons/profile-image.png';
-import { DownloadIcon } from '@chakra-ui/icons';
 import { useIntersectionObserver } from 'usehooks-ts';
+import { TypeAnimation } from 'react-type-animation';
+
+import { DownloadIcon } from '@chakra-ui/icons';
+import ProfilePicture from '../icons/profile-image.png';
 
 
 interface IntroductionComponentProps {
@@ -10,6 +12,7 @@ interface IntroductionComponentProps {
 }
 
 function Introduction(props:IntroductionComponentProps) {
+  const TITLE_DURATION = 2000;
   const [ intersecting, setIntersecting ] = useState<Boolean>(false);
 
   const { isIntersecting, ref } = useIntersectionObserver({
@@ -59,12 +62,27 @@ function Introduction(props:IntroductionComponentProps) {
                 </Text>
                 <br />{' '}
                 <Text color={'teal'} as={'span'} fontSize={{ base: '3xl', md: '3xl', lg: '4xl' }}>
-                  Web Developer
+
+                  <TypeAnimation
+                    sequence={[
+                      'Web Developer',
+                      TITLE_DURATION,
+                      'Full Stack Developer',
+                      TITLE_DURATION,
+                      'Front End Developer',
+                      TITLE_DURATION,
+                      'Back End Developer',
+                      TITLE_DURATION,
+                    ]}
+                    speed={50}
+                    repeat={Infinity}
+                  />
+                  
                 </Text>{' '}
               </Heading>
 
               <Text fontSize={{ base: 'lg', lg: 'xl' }} color={'gray.500'}>
-                I am a Full-Stack Developer with experience in designing and developing web applications.
+                Experienced in designing and developing web applications.
               </Text>
 
               <Button leftIcon={<DownloadIcon />} colorScheme='teal' variant='outline' size="lg" maxWidth={"200px"} onClick={downloadResume}>
