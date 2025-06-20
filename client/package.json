@@ -1,8 +1,7 @@
 {
   "name": "client",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
-  "homepage": "https://guptamayank9827.github.io/portfolio",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
@@ -21,7 +20,9 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "react-type-animation": "^3.2.0",
+    "typescript": "^4.9.5",
+    "usehooks-ts": "^3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

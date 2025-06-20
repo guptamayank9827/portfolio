@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Mayank Gupta's personal website showcasing his portfolio, skills, and projects."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -16,4 +16,15 @@
   <body>
     <div id="root"></div>
   </body>
+
+  <script type="text/javascript">
+    window.addEventListener('load', function() {
+      const hash = window.location.hash;
+      if(hash) {
+        const element = document.getElementById(hash.substring(1)); // Remove the '#'
+        if(element)  element.scrollIntoView();
+      }
+    });
+  </script>
+
 </html>
