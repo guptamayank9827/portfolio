@@ -189,7 +189,7 @@ function Experience(props:ExperienceComponentProps) {
           Over 4 years of Work Experience
         </Text>
 
-        <Accordion defaultIndex={[]} allowMultiple mt={6}>
+        <Accordion defaultIndex={[]} allowMultiple={false} allowToggle={true} mt={6}>
           {EXPERIENCES.map(experience => (
             <ExperienceCard experience={experience} key={experience.keyword} />
           ))}
