@@ -3,9 +3,8 @@ import { Box, Container, Button, Stack, Flex, Heading, Text, useBreakpointValue,
 import { useIntersectionObserver } from 'usehooks-ts';
 import { TypeAnimation } from 'react-type-animation';
 
-import { DownloadIcon } from '@chakra-ui/icons';
 import ProfilePicture from '../icons/profile-image.png';
-
+import DownloadIcon from '@mui/icons-material/Download';
 
 interface IntroductionComponentProps {
   updateComponentView: Function
@@ -35,12 +34,12 @@ function Introduction(props:IntroductionComponentProps) {
 
 
   return (
-    <Container ref={ref} className="section" id="introduction" height={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxW={{ lg:"container.md", xl:"container.lg" }}>
+    <Container ref={ref} className="section" id="introduction" centerContent={true} minHeight={{ base:"fit-content", lg:"100vh" }} my={{ base:24, lg:0 }} maxWidth={{ lg:"container.md", xl:"container.lg" }}>
       <Box className="section-div" textAlign={"left"}>
 
         <Stack direction={{ base: 'column', md: 'row' }}>
           <Flex flex={2} align={'left'}>
-            <Stack spacing={6} w={'full'} maxW={'lg'}>
+            <Stack gap={6} w={'full'} maxW={'lg'}>
               <Text color={'teal'} as={'span'} fontSize={"2xl"}>
                 Hey, I am
               </Text>
@@ -55,7 +54,7 @@ function Introduction(props:IntroductionComponentProps) {
                     position: 'absolute',
                     bottom: 1,
                     left: 0,
-                    bg: 'teal.400',
+                    bg: 'brand.600',
                     zIndex: -1,
                   }}>
                   Mayank Gupta
@@ -81,12 +80,12 @@ function Introduction(props:IntroductionComponentProps) {
                 </Text>{' '}
               </Heading>
 
-              <Text fontSize={{ base: 'lg', lg: 'xl' }} color={'gray.500'}>
+              <Text fontSize={{ base: 'lg', lg: 'xl' }}>
                 I build clients to servers, typed and tested - just how TypeScript likes it.
               </Text>
 
-              <Button leftIcon={<DownloadIcon />} colorScheme='teal' variant='outline' size="lg" maxWidth={"200px"} onClick={downloadResume}>
-                Download CV
+              <Button colorPalette="teal" variant='outline' size="lg" rounded="lg" maxWidth={"200px"} onClick={downloadResume}>
+                <DownloadIcon /> Download CV
               </Button>
 
             </Stack>
@@ -94,10 +93,10 @@ function Introduction(props:IntroductionComponentProps) {
           <Flex flex={1} align={'right'}>
             <Image
               alt={'Login Image'}
-              objectFit={'cover'}
+              fit={'cover'}
               src={ProfilePicture}
               mt={{ base:8, md:0 }}
-              borderRadius="100px"
+              borderRadius="60px"
             />
           </Flex>
         </Stack>

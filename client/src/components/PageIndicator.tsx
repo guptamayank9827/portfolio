@@ -1,11 +1,13 @@
-import { Step, StepIndicator, StepSeparator, StepStatus, Stepper, useSteps, LinkOverlay } from '@chakra-ui/react'
+import { useState } from 'react';
+import { Steps, LinkOverlay } from '@chakra-ui/react';
+
 
 interface PageIndicatorProps {
     view: string,
     componentView: string
 }
 
-const steps = [
+const STEPS = [
     { key:"introduction" },
     { key:"experience" },
     { key:"skills" },
@@ -14,36 +16,49 @@ const steps = [
 ];
 
 
+
 function PageIndicator(props:PageIndicatorProps) {
-
     let { componentView } = props;
-    let activeStepIndex = steps.map(step => step.key).indexOf(componentView);
     
-    const { activeStep, setActiveStep } = useSteps({
-        index: 0,
-        count: steps.length
-    })
+    let activeStepIndex = STEPS.map(step => step.key).indexOf(componentView);
+    if(activeStepIndex === -1) activeStepIndex = 0;
 
-    if(activeStepIndex !== activeStep) {
+    const [ activeStep, setActiveStep ] = useState(0);
+
+    if(activeStepIndex !== activeStep && activeStepIndex >= 0) {
         setActiveStep(activeStepIndex);
     }
 
     return(
         <div className='overlay-stepper'>
-            <Stepper index={activeStep} size="sm" colorScheme='teal' orientation='vertical' height='30vh' gap='0' style={{alignItems:"flex-end", marginRight:"10px"}}>
-                {steps.map((step, index) => (
-                    <Step key={index} onClick={() => setActiveStep(index)}>
 
-                        <LinkOverlay href={`/#${step.key}`}>
-                            <StepIndicator>
-                                <StepStatus />
-                            </StepIndicator>
-                        </LinkOverlay>
+            <Steps.Root
+                orientation={"vertical"}
+                count={STEPS.length}
+                // defaultStep={0}
+                step={activeStepIndex}
+                height="400px"
+                colorPalette="teal"
+                variant={"solid"}
+                size={{base:"xs", md:"xs"}}
+                mx={{base:1, md:2}}
+                display={{base:"none", md:"flex"}}
+            >
+                <Steps.List>
+                    {STEPS.map((step, index) => (
+                        <Steps.Item key={index} index={index} title={step.key}>
 
-                        <StepSeparator />
-                    </Step>
-                ))}
-            </Stepper>
+                            <Steps.Indicator borderColor={"teal"} borderWidth="1px">
+                                <LinkOverlay href={`/#${step.key}`} />
+                            </Steps.Indicator>
+
+                            <Steps.Separator borderColor={"teal"} borderWidth="1px" />
+                        </Steps.Item>
+                    ))}
+                </Steps.List>
+
+            </Steps.Root>
+
         </div>
     );
 }
